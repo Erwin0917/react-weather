@@ -1,3 +1,17 @@
+### My Project Info
+```json
+{
+  "version": "0.0.1",
+  "author": "Erwin Heba",
+  "info": [{
+    "name": "React Weather",
+    "description": "First React App",
+    "weather API": "https://openweathermap.org/api",
+    "url": "...",
+  }]
+}
+```
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
@@ -47,16 +61,4 @@ By default, the generated project uses the latest version of React.
 
 You can refer [to the React documentation](https://reactjs.org/docs/react-dom.html#browser-support) for more information about supported browsers.
 
-#My Project Info
-```json
-{
-  "version": "0.0.1",
-  "author": "Erwin Heba",
-  "info": [{
-    "name": "React Weather",
-    "description": "First React App",
-    "weather API": "https://openweathermap.org/api",
-    "url": "...",
-  }]
-}
-```
+
