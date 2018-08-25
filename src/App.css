@@ -17,7 +17,7 @@
 
 .searchWrapper{
   display: flex;
-  align-items: flex-start;
+  align-items: stretch;
 }
 .searchWrapper form{
   display: flex;

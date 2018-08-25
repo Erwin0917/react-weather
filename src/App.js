@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import classes from './App.css';
 import AutocompleteInput from "./GoogleComponents/AutocompleteInput/AutocompleteInput";
 import CurrentWeather from "./Components/CurrentWeather/CurrentWeather";
+import SavedCities from './Components/SavedCities/SavedCities'
 
 class App extends Component {
 
@@ -22,6 +23,7 @@ class App extends Component {
           <h2 className={classes.AppHeader}>Podaj miasto lub skorzystaj z geolokalizacji żeby sprawdzić prognozę pogody.</h2>
           <div className={classes.searchWrapper}>
             <AutocompleteInput cityName={this.getCityName}/>
+            <SavedCities cityName={this.state.cityName}/>
           </div>
           <CurrentWeather cityName={this.state.cityName}/>
       </div>

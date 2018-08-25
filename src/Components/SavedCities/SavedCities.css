@@ -1,0 +1,30 @@
+.SavedCities__wrapper{
+    display: flex;
+    align-items: center;
+    padding: 0 5px;
+}
+.SavedCities__wrapper h3{
+    font-weight: 400;
+}
+.SavedCities__list{
+    padding-left: 5px;
+}
+.SavedCities__list li{
+    display: inline-block;
+    margin: 0 3px;
+}
+.SavedCities__list button{
+    background-color: #f9f9f9;
+    border: 1px solid transparent;
+    color: #16a085;
+    cursor: pointer;
+    font-weight: 400;
+    transition: .25s ease-out;
+    border-radius: 4px;
+}
+.SavedCities__list button:focus,
+.SavedCities__list button:active,
+.SavedCities__list button:hover{
+    outline: 0;
+    border: 1px solid #16a085;
+}

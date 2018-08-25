@@ -16,7 +16,7 @@ class CurrentWeather extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        if (nextProps.cityName != null && nextProps.cityName != this.state.cityName) {
+        if (nextProps.cityName !== null && nextProps.cityName !== this.state.cityName) {
             this.setState({
                 ...this.state,
                 cityName: this.props.cityName
@@ -33,6 +33,12 @@ class CurrentWeather extends Component {
                     this.setState({
                         ...this.state,
                         currentWeather: {...data}
+                    })
+                })
+                .catch(err =>{
+                    this.setState({
+                        ...this.state,
+                        currentWeather: "Limit zapytan dla tego klucza API został wyczerpany"
                     })
                 })
         }
