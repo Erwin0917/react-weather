@@ -33,7 +33,7 @@ a{
   text-decoration: none;
   color: black;
 }
-.app__info{
+:global .app__info{
   position: relative;
   left: 50%;
   -webkit-transform: translateX(-50%);
@@ -46,16 +46,16 @@ a{
   box-sizing: border-box;
 }
 
-.app__info h1{
+:global .app__info h1{
   color: #ecf0f1;
   margin-bottom: 8px;
 }
-.app__info a, .app__info h2{
+:global .app__info a, :global .app__info h2{
   font-size: 0.75rem;
   padding: 2px 0;
   display: block;
   color: #bdc3c7;
 }
-.app__info a{
+:global .app__info a{
   display: inline;
 }

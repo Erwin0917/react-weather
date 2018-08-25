@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import Autocomplete from 'react-google-autocomplete';
 import Button from "../../Buttons/Button/Button";
 
-import './AutocompleteInput.css';
+import classes from  './AutocompleteInput.css';
 
 
 class AutocompleteInput extends Component {
@@ -44,7 +44,6 @@ class AutocompleteInput extends Component {
       }
 
       handleChange = e =>{
-          console.log(e)
           const val =e.target.value;
 
           if(val.length > 2){
@@ -66,14 +65,14 @@ class AutocompleteInput extends Component {
         return (
             <form onSubmit={this.handleSubmit} >
                 <Autocomplete
-                className={`searchInput ${this.state.buttonIsValide ? '' : 'error'}`}
+                className={`${classes.searchInput} ${this.state.buttonIsValide ? '' : classes.error}`}
                 onPlaceSelected={(place) => {
                 }}
                 types={['(regions)']}
                 placeholder="Podaj nazwe miasta"
                 onChange={this.handleChange}
                 />
-                <Button isActive={this.state.buttonActive} isValide={this.state.buttonIsValide}  addClass="Btn__search"  type="submit" text="Szukaj"></Button>
+                <Button isActive={this.state.buttonActive} isValide={this.state.buttonIsValide}  addClass="search"  type="submit" text="Szukaj"></Button>
 
 
             </form>
