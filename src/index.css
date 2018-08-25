@@ -1,9 +1,14 @@
+:root{
+  --main-text-color: black;
+  --sec-text-color: #0f0d12;
+  --h1-size:  1.75rem; /* 28px */
+  --small-header: 0.875rem; /* 14px */
+}
+
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-}
-#root{
   width: 100%;
   min-height: 100vh;
   background: #56CCF2;
@@ -13,4 +18,44 @@ body {
   background: linear-gradient(to right, #2F80ED, #56CCF2);
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   padding-top: 40px;
+  font-family: 'Montserrat', sans-serif;
+  color: var(--main-text-color);
+}
+h1,h2,h3,h4,h5{
+  font-family: 'Raleway', sans-serif;
+  font-weight: bold;
+}
+h1{
+  font-size: var(--h1-size);
+}
+
+a{
+  text-decoration: none;
+  color: black;
+}
+.app__info{
+  position: relative;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 1100px;
+  margin-bottom: 4px;
+  padding: 0 5px;
+  box-sizing: border-box;
+}
+
+.app__info h1{
+  color: #ecf0f1;
+  margin-bottom: 8px;
+}
+.app__info a, .app__info h2{
+  font-size: 0.75rem;
+  padding: 2px 0;
+  display: block;
+  color: #bdc3c7;
+}
+.app__info a{
+  display: inline;
 }

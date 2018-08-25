@@ -1,54 +1,80 @@
 import React, {Component} from "react";
 import Autocomplete from 'react-google-autocomplete';
+import Button from "../../Buttons/Button/Button";
+
+import './AutocompleteInput.css';
 
 
 class AutocompleteInput extends Component {
 
     state={
-        cityName: null,
         cityPhoto: null,
         buttonActive: null,
-
+        buttonIsValide: true
     }
 
-    getValue(e){
-        console.log(e.target.value);
-    }
+    handleSubmit= e => {
+        e.preventDefault();
+        const input = document.querySelector('.searchInput');
 
-    changeHandler =(e)=>{
-        let value = (e.target.value).trim();
+        let value = input.value;
+
+        this.valideForm(value)
 
         if(value.length > 2){
-            this.setState({ buttonActive: "active"})
+            this.props.cityName(value);
         }else{
-            this.setState({ buttonActive: null})
+            this.props.cityName(null);
         }
 
-    }
-    submitFormHandler(e){
-        e.preventDefault();
+      }
 
-    }
+      valideForm = value =>{
+        if(value.length < 3){
+            this.setState({
+                ...this.state,
+                 buttonIsValide: false
+                })
+        }else{
+            this.setState({
+                ...this.state,
+                 buttonIsValide: true
+                })
+        }
+      }
+
+      handleChange = e =>{
+          console.log(e)
+          const val =e.target.value;
+
+          if(val.length > 2){
+              this.setState({
+                  ...this.state,
+                  buttonActive: 'active'
+              })
+          }else{
+            this.setState({
+                ...this.state,
+                buttonActive: false
+            })
+          }
+      }
 
 
     render (){
 
-
         return (
-            <form onSubmit={this.getValue}>
+            <form onSubmit={this.handleSubmit} >
                 <Autocomplete
-                className="searchInput"
+                className={`searchInput ${this.state.buttonIsValide ? '' : 'error'}`}
                 onPlaceSelected={(place) => {
-                    console.log(place)
-
-                    //na wyberanie miasta pobrac wartość z inputa
-
                 }}
                 types={['(regions)']}
                 placeholder="Podaj nazwe miasta"
-                onChange={this.changeHandler}
+                onChange={this.handleChange}
                 />
-                <button className={this.state.buttonActive} onClick={this.submitFormHandler} type="submit">Szukaj</button>
+                <Button isActive={this.state.buttonActive} isValide={this.state.buttonIsValide}  addClass="Btn__search"  type="submit" text="Szukaj"></Button>
+
 
             </form>
 
