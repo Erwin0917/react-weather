@@ -12,11 +12,16 @@ class AutocompleteInput extends Component {
         buttonActive: null,
         buttonIsValide: true
     }
+    constructor(props){
+        super(props);
+        this.input = React.createRef();
+
+    }
+
 
     handleSubmit= e => {
         e.preventDefault();
-        const input = document.querySelector('.searchInput');
-
+        const input = this.input.current.refs.input;
         let value = input.value;
 
         this.valideForm(value)
@@ -71,8 +76,9 @@ class AutocompleteInput extends Component {
                 types={['(regions)']}
                 placeholder="Podaj nazwe miasta"
                 onChange={this.handleChange}
+                ref={this.input}
                 />
-                <Button isActive={this.state.buttonActive} isValide={this.state.buttonIsValide}  addClass="search"  type="submit" text="Szukaj"></Button>
+                <Button isActive={this.state.buttonActive} isValide={this.state.buttonIsValide}  addClass="search"  type="submit" text="Szukaj" ></Button>
 
 
             </form>

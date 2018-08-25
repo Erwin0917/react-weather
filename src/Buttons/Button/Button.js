@@ -1,12 +1,15 @@
-import React from "react";
+import React, {Component} from "react";
 
 import classes from './Button.css';
 
-const Button = (props)=>{
+class Button extends Component{
 
-    return (
-        <button className={`${classes.Btn} ${props.addClass  === "search" ? classes.Btn__search : ''} ${props.isActive ? classes.active : ''} ${props.isValide ? '' : classes.error }`} onClick={props.onClick}  type={props.type}><span>{props.text}</span></button>
-    )
+
+    render(){
+        return (
+            <button ref={this.ref} className={`${classes.Btn} ${this.props.addClass  === "search" ? classes.Btn__search : ''} ${this.props.isActive ? classes.active : ''} ${this.props.isValide ? '' : classes.error }`} onClick={this.props.onClick}  type={this.props.type}><span>{this.props.text}</span></button>
+        )
+    }
 }
 
 export default Button;
