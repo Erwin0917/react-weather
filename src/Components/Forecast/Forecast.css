@@ -9,8 +9,23 @@
     border-bottom: 1px solid #bdc3c7;
     padding: 10px 0;
     margin: 10px 0;
+    flex-wrap: wrap;
 }
 
 .hour__wrapper{
-    display: flex;
+    border-right: 1px solid #bdc3c7;
+    padding: 15px 0;
+}
+
+.hour__wrapper:last-child{
+    border-right: none;
+}
+
+.day{
+    width: 100%;
+}
+
+.slider__wrapper{
+    width: 100%;
+    overflow: hidden;
 }

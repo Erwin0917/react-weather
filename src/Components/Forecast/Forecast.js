@@ -3,6 +3,7 @@ import classes from './Forecast.css';
 
 import axios from 'axios';
 import ReactTooltip from 'react-tooltip'
+import Swiper from 'react-id-swiper';
 
 const _API_KEY = "29d5afe65ca65594abc30012dab7ae6e"
 
@@ -95,6 +96,16 @@ class Forecast extends Component {
 
 
     render() {
+        const params = {
+            spaceBetween: 30,
+            slidesPerView: 3,
+            containerClass: classes.slider__wrapper,
+            autoplay: {
+                delay: 3500,
+            }
+
+        }
+
 
         let renderForecast = (forecast) =>{
             if(forecast){
@@ -102,20 +113,30 @@ class Forecast extends Component {
                     forecast.map( (day, i) =>{
                         return (
                             <div key={i} className={classes.day__wrapper}>
-                               {day.map( hour => (
-                                   <div key={hour.dt_txt} className={classes.hour__wrapper}>
-                                        <p>{hour.dt_txt}</p>
-                                   </div>
-                              ))}
+                                <h4 className={classes.day}>{day[0].dt_txt.split(' ')[0]}</h4>
+                                <Swiper {...params} >
+                                    {day.map( hour => (
+                                        <div key={hour.dt_txt} className={classes.hour__wrapper}>
+                                                <h4 className={classes.hour__title}>{hour.dt_txt.split(' ')[1]}</h4>
+                                                <div className={classes.hour__details}>
+                                                    <div className={classes.hour__temp__wrapper}>
+                                                        <p>{hour.main.temp}</p>
+                                                    </div>
+                                                    <div className={classes.hour__weather}>
+                                                        <p data-tip="Ciśnienie"><span className="ico ico__press"></span>{hour.main.pressure}</p>
+                                                        <p data-tip="Wilgodność"><span className="ico ico__humidity"></span>{hour.main.humidity}</p>
+                                                        <p data-tip="Wiatr"><span className="ico ico__wind"></span>{hour.wind.speed}</p>
+                                                        <p data-tip="Zachmurzenie"><span className="ico ico__cloud"></span>{hour.clouds.all}</p>
+                                                    </div>
+                                                </div>
+                                        </div>
+                                    ))}
+                                </Swiper>
+
                             </div>
                         )
-
                     })
                 )
-
-
-
-
             }else{
                 return '';
             }
@@ -124,6 +145,7 @@ class Forecast extends Component {
         return (
             <div className={classes.wrapper}>
                 {this.state.renderThis ? renderForecast(this.state.forecast) : ''}
+                <ReactTooltip />
             </div>
         );
     }
