@@ -1,0 +1,16 @@
+.wrapper{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.day__wrapper{
+    display: flex;
+    width: 100%;
+    border-bottom: 1px solid #bdc3c7;
+    padding: 10px 0;
+    margin: 10px 0;
+}
+
+.hour__wrapper{
+    display: flex;
+}

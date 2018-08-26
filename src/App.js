@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import classes from './App.css';
+
 import AutocompleteInput from "./GoogleComponents/AutocompleteInput/AutocompleteInput";
 import CurrentWeather from "./Components/CurrentWeather/CurrentWeather";
+import Forecast from "./Components/Forecast/Forecast";
 import SavedCities from './Components/SavedCities/SavedCities'
 
 class App extends Component {
@@ -27,6 +29,7 @@ class App extends Component {
             <SavedCities cityName={this.state.cityName} clicked={this.getCityName}/>
           </div>
           <CurrentWeather cityName={this.state.cityName}/>
+          <Forecast cityName={this.state.cityName}/>
       </div>
     );
   }
