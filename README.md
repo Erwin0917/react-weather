@@ -1,7 +1,7 @@
 ### My Project Info
 ```json
 {
-  "version": "0.0.1",
+  "version": "0.9.0",
   "author": "Erwin Heba",
   "info": [{
     "name": "React Weather",

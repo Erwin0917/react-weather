@@ -5,7 +5,7 @@ import axios from 'axios';
 import ReactTooltip from 'react-tooltip'
 import Swiper from 'react-id-swiper';
 
-const _API_KEY = "29d5afe65ca65594abc30012dab7ae6e"
+const _API_KEY = "***"
 
 class Forecast extends Component {
     state={
@@ -102,6 +102,16 @@ class Forecast extends Component {
             containerClass: classes.slider__wrapper,
             autoplay: {
                 delay: 3500,
+            },
+            breakpoints: {
+                    800: {
+                        slidesPerView: 2,
+                        spaceBetween: 15
+                    },
+                    550: {
+                        slidesPerView: 1,
+                        spaceBetween: 5
+                    },
             }
 
         }
@@ -113,20 +123,23 @@ class Forecast extends Component {
                     forecast.map( (day, i) =>{
                         return (
                             <div key={i} className={classes.day__wrapper}>
-                                <h4 className={classes.day}>{day[0].dt_txt.split(' ')[0]}</h4>
+                                <h4 className={classes.day}>Pogoda na dzień: {day[0].dt_txt.split(' ')[0]}</h4>
                                 <Swiper {...params} >
                                     {day.map( hour => (
                                         <div key={hour.dt_txt} className={classes.hour__wrapper}>
-                                                <h4 className={classes.hour__title}>{hour.dt_txt.split(' ')[1]}</h4>
+                                                <h4 className={classes.hour__title}>Godzina: {hour.dt_txt.split(' ')[1]}</h4>
                                                 <div className={classes.hour__details}>
                                                     <div className={classes.hour__temp__wrapper}>
-                                                        <p>{hour.main.temp}</p>
+                                                        <p>{hour.main.temp}℃</p>
+                                                        <div className={classes.ico__wrapper}>
+                                                            <img  src={`http://openweathermap.org/img/w/${hour.weather[0].icon}.png`} alt="Ikona pogody - godzinowa"></img>
+                                                        </div>
                                                     </div>
                                                     <div className={classes.hour__weather}>
-                                                        <p data-tip="Ciśnienie"><span className="ico ico__press"></span>{hour.main.pressure}</p>
-                                                        <p data-tip="Wilgodność"><span className="ico ico__humidity"></span>{hour.main.humidity}</p>
-                                                        <p data-tip="Wiatr"><span className="ico ico__wind"></span>{hour.wind.speed}</p>
-                                                        <p data-tip="Zachmurzenie"><span className="ico ico__cloud"></span>{hour.clouds.all}</p>
+                                                        <p data-tip="Ciśnienie"><span className="ico ico__press"></span>{hour.main.pressure}hPa</p>
+                                                        <p data-tip="Wilgodność"><span className="ico ico__humidity"></span>{hour.main.humidity}%</p>
+                                                        <p data-tip="Wiatr"><span className="ico ico__wind"></span>{hour.wind.speed}mps</p>
+                                                        <p data-tip="Zachmurzenie"><span className="ico ico__cloud"></span>{hour.clouds.all}%</p>
                                                     </div>
                                                 </div>
                                         </div>

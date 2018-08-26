@@ -28,3 +28,13 @@
     outline: 0;
     border: 1px solid #16a085;
 }
+
+@media( max-width: 1200px){
+    .SavedCities__wrapper{
+        width: 100%;
+        margin-top: 15px;
+    }
+    .SavedCities__list li{
+        margin: 5px 3px;
+    }
+}

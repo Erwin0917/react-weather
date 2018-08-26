@@ -22,3 +22,9 @@
 .searchWrapper form{
   display: flex;
 }
+
+@media (max-width: 1200px){
+  .searchWrapper{
+    flex-wrap: wrap;
+  }
+}

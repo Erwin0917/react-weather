@@ -16,3 +16,10 @@
 .searchInput.error{
     border-color: #c0392b;
 }
+
+@media(max-width: 440px){
+    .searchInput{
+        min-width: auto;
+        width: 80%;
+    }
+}

@@ -23,9 +23,41 @@
 
 .day{
     width: 100%;
+    font-size: 1.4rem;
+    font-weight: 100;
+    margin-bottom: 15px;
 }
 
 .slider__wrapper{
     width: 100%;
     overflow: hidden;
+}
+.hour__details{
+    display: flex;
+    flex-wrap: wrap;
+}
+.hour__temp__wrapper{
+    width: 50%;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.hour__temp__wrapper p{
+    width: 100%;
+    text-align: center;
+
+}
+.hour__weather{
+    width: 50%;
+}
+.hour__weather p{
+   display: flex;
+   align-items: center;
+   margin: 5px 0;
+}
+.hour__weather span{
+    margin-right: 5px;
 }

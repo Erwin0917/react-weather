@@ -4,7 +4,7 @@ import axios from 'axios';
 import ReactTooltip from 'react-tooltip'
 
 
-const _API_KEY = "b25c40f7f24ed40bbd9add84d8badbd9";
+const _API_KEY = "***";
 
 
 class CurrentWeather extends Component {
