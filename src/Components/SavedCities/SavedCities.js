@@ -31,9 +31,23 @@ class SavedCities extends Component{
             }
         }
     }
+    componentDidMount() {
+        this.readLocal()
+    }
 
     saveInLocal = array =>{
+        localStorage.setItem('recentCities', array);
+    }
 
+    readLocal = ()=>{
+        const storage = localStorage.getItem('recentCities');
+
+        if(storage){
+            this.setState({
+                ...this.state,
+                cities: [storage, ...this.state.cities]
+            })
+        }
     }
 
     render(){
