@@ -73,7 +73,7 @@ class AutocompleteInput extends Component {
                 className={`${classes.searchInput} ${this.state.buttonIsValide ? '' : classes.error}`}
                 onPlaceSelected={(place) => {
                 }}
-                types={['(regions)']}
+                types={['(cities)']}
                 placeholder="Podaj nazwe miasta"
                 onChange={this.handleChange}
                 ref={this.input}

@@ -17,13 +17,14 @@ class App extends Component {
     })
   }
 
+
   render() {
     return (
       <div className={classes.App}>
           <h2 className={classes.AppHeader}>Podaj miasto lub skorzystaj z geolokalizacji żeby sprawdzić prognozę pogody.</h2>
           <div className={classes.searchWrapper}>
             <AutocompleteInput cityName={this.getCityName}/>
-            <SavedCities cityName={this.state.cityName}/>
+            <SavedCities cityName={this.state.cityName} clicked={this.getCityName}/>
           </div>
           <CurrentWeather cityName={this.state.cityName}/>
       </div>

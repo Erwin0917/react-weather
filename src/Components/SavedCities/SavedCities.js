@@ -36,16 +36,16 @@ class SavedCities extends Component{
     }
 
     saveInLocal = array =>{
-        localStorage.setItem('recentCities', array);
+        localStorage.setItem('recentCities', JSON.stringify(array) );
     }
 
     readLocal = ()=>{
-        const storage = localStorage.getItem('recentCities');
+        const storage = JSON.parse(localStorage.getItem('recentCities') );
 
         if(storage){
             this.setState({
                 ...this.state,
-                cities: [storage, ...this.state.cities]
+                cities: [...storage, ...this.state.cities]
             })
         }
     }
@@ -54,7 +54,7 @@ class SavedCities extends Component{
         let citiesList = <ul className={classes.SavedCities__list}>
                     {this.state.cities.map( city =>{
                         return(
-                            <li key={city}><button>{city}</button></li>
+                            <li key={city}><button onClick={(e)=> this.props.clicked(e.target.innerText)}>{city}</button></li>
                         )
                     } )}
 
