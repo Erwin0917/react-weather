@@ -26,9 +26,16 @@ class SavedCities extends Component{
                     ...this.state,
                     cities: newArray
                 })
+
+                this.saveInLocal(newArray);
             }
         }
     }
+
+    saveInLocal = array =>{
+
+    }
+
     render(){
         let citiesList = <ul className={classes.SavedCities__list}>
                     {this.state.cities.map( city =>{
