@@ -4,7 +4,7 @@ import axios from 'axios';
 import ReactTooltip from 'react-tooltip'
 
 
-const _API_KEY = "***";
+const _API_KEY = "b25c40f7f24ed40bbd9add84d8badbd9";
 
 
 class CurrentWeather extends Component {
@@ -49,7 +49,7 @@ class CurrentWeather extends Component {
         }
 
         if(this.city){
-            axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${this.city}&units=metric&lang=pl&APPID=${_API_KEY}`)
+            axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${this.city}&units=metric&lang=pl&APPID=${_API_KEY}`)
                 .then(res => {
                     const data = res.data;
                     this.setState({
@@ -95,7 +95,7 @@ class CurrentWeather extends Component {
                     ico: this.state.currentWeather.weather[0].icon,
                 }
             },
-            icoURL: `http://openweathermap.org/img/w/${this.state.currentWeather.weather[0].icon}.png`
+            icoURL: `https://openweathermap.org/img/w/${this.state.currentWeather.weather[0].icon}.png`
         })
     }
 

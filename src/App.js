@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import classes from './App.css';
+import axios from 'axios';
 
 import AutocompleteInput from "./GoogleComponents/AutocompleteInput/AutocompleteInput";
 import CurrentWeather from "./Components/CurrentWeather/CurrentWeather";
@@ -18,6 +19,30 @@ class App extends Component {
       cityName: name
     })
   }
+
+  getCityFromGeolocation = ()=>{
+    if ("geolocation" in navigator) {
+
+        return new Promise((resolve, reject) => {
+              navigator.geolocation.getCurrentPosition(function (position) {
+                resolve( {
+                      lat: position.coords.latitude,
+                      long: position.coords.longitude
+                    })
+                })
+      });
+    }
+  }
+
+  componentDidMount() {
+    const cord = this.getCityFromGeolocation();
+    console.log(cord)
+    cord
+    .then(cord => axios.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${cord.lat},${cord.long}&sensor=false`).then(res => this.setState({...this.state, cityName: res.data.results[3].formatted_address})));
+
+
+  }
+
 
 
   render() {

@@ -5,7 +5,7 @@ import axios from 'axios';
 import ReactTooltip from 'react-tooltip'
 import Swiper from 'react-id-swiper';
 
-const _API_KEY = "***"
+const _API_KEY = "29d5afe65ca65594abc30012dab7ae6e";
 
 class Forecast extends Component {
     state={
@@ -29,7 +29,7 @@ class Forecast extends Component {
         }
 
         if (this.city) {
-            axios.get(`http://api.openweathermap.org/data/2.5/forecast?q=${this.city}&units=metric&lang=pl&APPID=${_API_KEY}`)
+            axios.get(`https://api.openweathermap.org/data/2.5/forecast?q=${this.city}&units=metric&lang=pl&APPID=${_API_KEY}`)
                 .then(res => {
                     const data = res.data;
                     this.formatWeatherData(data);
@@ -132,7 +132,7 @@ class Forecast extends Component {
                                                     <div className={classes.hour__temp__wrapper}>
                                                         <p>{hour.main.temp}℃</p>
                                                         <div className={classes.ico__wrapper}>
-                                                            <img  src={`http://openweathermap.org/img/w/${hour.weather[0].icon}.png`} alt="Ikona pogody - godzinowa"></img>
+                                                            <img  src={`https://openweathermap.org/img/w/${hour.weather[0].icon}.png`} alt="Ikona pogody - godzinowa"></img>
                                                         </div>
                                                     </div>
                                                     <div className={classes.hour__weather}>
