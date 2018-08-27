@@ -112,7 +112,8 @@ class Forecast extends Component {
                         slidesPerView: 1,
                         spaceBetween: 5
                     },
-            }
+            },
+            grabCursor: true
 
         }
 

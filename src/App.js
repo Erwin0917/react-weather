@@ -36,9 +36,18 @@ class App extends Component {
 
   componentDidMount() {
     const cord = this.getCityFromGeolocation();
-    console.log(cord)
+
     cord
-    .then(cord => axios.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${cord.lat},${cord.long}&sensor=false`).then(res => this.setState({...this.state, cityName: res.data.results[3].formatted_address})));
+    .then(cord => axios.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${cord.lat},${cord.long}&sensor=false`).then(res =>{
+
+      let city = res.data.results[0].formatted_address;
+      city = city.split(', ');
+      city.shift();
+      city = city[0].split(' ');
+
+      this.setState({...this.state, cityName: city[1]});
+
+    }));
 
 
   }
