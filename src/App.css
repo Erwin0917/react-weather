@@ -8,16 +8,23 @@
   padding: 40px 20px;
   box-sizing: border-box;
   border-radius: 4px;
+  overflow: hidden;
 }
 
 .AppHeader{
   font-size:  1.375rem;
-  margin-bottom: 25px;
+  padding-bottom: 25px;
+  position: relative;
+  z-index: 400;
+  background-color: white;
 }
 
 .searchWrapper{
   display: flex;
   align-items: stretch;
+  position: relative;
+  z-index: 400;
+  background-color: white;
 }
 .searchWrapper form{
   display: flex;

@@ -1,15 +1,37 @@
 .wrapper{
     display: flex;
     flex-wrap: wrap;
+    position: relative;
+    z-index: 200;
+    background-color: white;
+    overflow: hidden;
 }
 
 .day__wrapper{
     display: flex;
     width: 100%;
-    border-bottom: 1px solid #bdc3c7;
     padding: 10px 0;
     margin: 10px 0;
     flex-wrap: wrap;
+    padding: 20px;
+    border-radius: 20px;
+    box-sizing: border-box;
+    position: relative;
+    animation: moveIn 1.5s ease-out;
+
+}
+
+@keyframes moveIn {
+    0%{
+        margin-top: -2000px;
+    }
+    100%{
+        margin-top: 0px;
+    }
+}
+
+.day__wrapper:nth-child(even){
+    background-color: #f7f7f7;
 }
 
 .hour__wrapper{
@@ -17,15 +39,28 @@
     padding: 15px 0;
 }
 
+.hour__wrapper h4{
+    text-align: center;
+    margin-bottom: 10px;
+}
+
 .hour__wrapper:last-child{
     border-right: none;
 }
 
 .day{
-    width: 100%;
     font-size: 1.4rem;
     font-weight: 100;
     margin-bottom: 15px;
+    background-color: #ecf0f1;
+    border-radius: 15px;
+    padding: 6px 20px;
+    display: flex;
+    align-items: center;
+}
+.day span{
+    font-size: 11px;
+    margin-left: 5px;
 }
 
 .slider__wrapper{

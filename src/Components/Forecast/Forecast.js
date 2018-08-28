@@ -4,6 +4,9 @@ import classes from './Forecast.css';
 import axios from 'axios';
 import ReactTooltip from 'react-tooltip'
 import Swiper from 'react-id-swiper';
+import Moment from 'react-moment';
+import 'moment-timezone';
+import 'moment/locale/pl';
 
 const _API_KEY = "29d5afe65ca65594abc30012dab7ae6e";
 
@@ -70,27 +73,6 @@ class Forecast extends Component {
             ...this.state,
             forecast: forecastArr,
             renderThis: true
-
-            /* weather: {
-                city: {
-                    name: this.state.currentWeather.name,
-                    id: this.state.currentWeather.id,
-                    lon: this.state.currentWeather.coord.lon,
-                    lat: this.state.currentWeather.coord.lat
-                },
-                current: {
-                    desc: this.state.currentWeather.weather[0].description,
-                    temp: this.state.currentWeather.main.temp,
-                    press: this.state.currentWeather.main.pressure,
-                    humidity: this.state.currentWeather.main.humidity,
-                    windSpeed: this.state.currentWeather.wind.speed,
-                    clouds: this.state.currentWeather.clouds.all
-                },
-                dataInfo: {
-                    ico: this.state.currentWeather.weather[0].icon,
-                }
-            },
-            icoURL: `http://openweathermap.org/img/w/${this.state.currentWeather.weather[0].icon}.png` */
         })
     }
 
@@ -124,11 +106,11 @@ class Forecast extends Component {
                     forecast.map( (day, i) =>{
                         return (
                             <div key={i} className={classes.day__wrapper}>
-                                <h4 className={classes.day}>Pogoda na dzień: {day[0].dt_txt.split(' ')[0]}</h4>
+                                <h4 className={classes.day}><Moment locale="pl" format="dddd">{day[0].dt_txt.split(' ')[0]}</Moment> <span>{day[0].dt_txt.split(' ')[0]}</span></h4>
                                 <Swiper {...params} >
                                     {day.map( hour => (
                                         <div key={hour.dt_txt} className={classes.hour__wrapper}>
-                                                <h4 className={classes.hour__title}>Godzina: {hour.dt_txt.split(' ')[1]}</h4>
+                                                <h4 className={classes.hour__title}>Godzina: {hour.dt_txt.split(' ')[1].slice(0, 5)}</h4>
                                                 <div className={classes.hour__details}>
                                                     <div className={classes.hour__temp__wrapper}>
                                                         <p>{hour.main.temp}℃</p>
